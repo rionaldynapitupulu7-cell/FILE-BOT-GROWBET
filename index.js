@@ -1,4 +1,5 @@
 const { default: makeWASocket, useMultiFileAuthState, DisconnectReason } = require('@whiskeysockets/baileys')
+const delay = (ms) => new Promise(r => setTimeout(r, ms))
 const qrcode = require('qrcode-terminal')
 const fs = require('fs')
 const dbPath = './coin.json'
@@ -32,6 +33,8 @@ async function startBot() {
     const { id, participants, action } = update
     if (action === 'add') {
       for (let p of participants) {
+            await delay(2000 + Math.random() * 1000)
+            await delay(2000 + Math.random() * 1000)
         try {
           const jid = typeof p === 'string' ? p : (p.id || p.jid || '')
           if (!jid) continue
@@ -39,7 +42,8 @@ async function startBot() {
           const meta = await sock.groupMetadata(id)
           const total = meta.participants.length
           const txt = '🎰 *SELAMAT DATANG DI GROW BET* 🎰\n\n👤 *Member* : @' + num + '\n👥 *Grup* : ' + meta.subject + '\n📊 *Total* : ' + total + ' member\n\n━━━━━━━━━━━━━━━━━━━━━\n📌 *INFO PENTING*\n━━━━━━━━━━━━━━━━━━━━━\n✅ Daftarkan diri ke Owner\n💰 Min Deposit : *Rp 2.000*\n💸 Min WD : *Rp 10.000* | Tax 3%\n🎮 Min Bet : *Rp 500*\n\n🎮 Tersedia berbagai game seru\n🏆 Bonus & hadiah menarik!\n━━━━━━━━━━━━━━━━━━━━━\n💎 *GROW BET — Tempat Para Juara*\n🔥 _Semoga hoki selalu!_ 🍀'
-          await sock.sendMessage(id, { image: { url: 'https://raw.githubusercontent.com/rionaldynapitupulu7-cell/Welcome/main/IMG-20260518-WA0020.jpg' }, caption: txt, mentions: [jid] })
+          await delay(1500 + Math.random() * 1000)
+              await sock.sendMessage(id, { image: { url: 'https://raw.githubusercontent.com/rionaldynapitupulu7-cell/Welcome/main/IMG-20260518-WA0020.jpg' }, caption: txt, mentions: [jid] })
         } catch(e) { console.error('Welcome error:', e.message) }
       }
     }
