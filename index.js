@@ -325,7 +325,7 @@ async function startBot() {
       if (!db[mentionedJid]) { await sock.sendMessage(from, { text: '❌ Player tujuan belum terdaftar!' }, { quoted: msg }); return }
       const saldoPengirim = db[senderJid].coin || 0
       const resellers = ['6287854189807@s.whatsapp.net', '6282334880404@s.whatsapp.net', '6285717707402@s.whatsapp.net']
-      const isFreeTax = resellers.includes(senderJid) || isOwner
+      const isFreeTax = resellers.includes(senderJid) || isOwner || senderJid === staffJid || senderJid === staffJid2
       const tax = isFreeTax ? 0 : Math.floor(jumlah * 0.03)
       const totalKurang = jumlah + tax
       if (saldoPengirim < totalKurang) { await sock.sendMessage(from, { text: '❌ Saldo tidak cukup!\n💰 Saldo kamu: *Rp ' + saldoPengirim.toLocaleString('id-ID') + '*\n💸 Butuh: *Rp ' + totalKurang.toLocaleString('id-ID') + '*' }, { quoted: msg }); return }
@@ -335,9 +335,10 @@ async function startBot() {
       const numFrom = senderJid.split('@')[0]
       const numTo = mentionedJid.split('@')[0]
       const now = new Date().toLocaleString('id-ID', { timeZone: 'Asia/Jakarta' })
-      const taxInfo = isFreeTax ? '🎖️ *Tax*        : *FREE (Reseller/Owner)*' : '💸 *Tax 3%*     : *-Rp ' + tax.toLocaleString('id-ID') + '*'
-      const txt = L + '\n💸 *[ GROW BET — TRANSFER SALDO ]* 💸\n' + L + '\n\n📤 *Pengirim* : @' + numFrom + '\n📥 *Penerima* : @' + numTo + '\n\n' + L + '\n💰 *DETAIL TRANSAKSI*\n' + L + '\n💵 *Transfer*      : *Rp ' + jumlah.toLocaleString('id-ID') + '*\n' + taxInfo + '\n💳 *Total Potong*  : *Rp ' + totalKurang.toLocaleString('id-ID') + '*\n\n' + L + '\n📊 *SALDO SETELAH TF*\n' + L + '\n📤 @' + numFrom + ' : *Rp ' + db[senderJid].coin.toLocaleString('id-ID') + '*\n📥 @' + numTo + '   : *Rp ' + db[mentionedJid].coin.toLocaleString('id-ID') + '*\n\n' + L + '\n✅ _Transfer berhasil!_\n🕐 ' + now + '\n' + L + '\n🤖 *GrowBetBot — Tempat Para Juara* 🏆\n' + L
-      await sock.sendMessage(from, { text: txt, mentions: [senderJid, mentionedJid] }, { quoted: msg })
+      const taxInfo = isFreeTax ? '💎 *Pajak*            : *FREE (Owner/Staff/Reseller)*' : '💸 *Pajak*            : *Rp ' + tax.toLocaleString('id-ID') + ' (3%)*'
+        const statusInfo = isFreeTax ? '✅ Bebas TAX' : '💸 Kena TAX 3%'
+        const trxId = 'GBET-' + Math.random().toString(36).substring(2,8).toUpperCase()
+        const txt = L + '\n✅ *TRANSFER BERHASIL* ✅\n' + L + '\n🧾 *ID Transaksi* : *' + trxId + '*\n\n👤 *Pengirim*             : @' + numFrom + '\n🎯 *Penerima*             : @' + numTo + '\n\n' + L + '\n💵 *Nominal Transfer* : *Rp ' + jumlah.toLocaleString('id-ID') + '*\n' + taxInfo + '\n💰 *Diterima*             : *Rp ' + (jumlah - tax).toLocaleString('id-ID') + '*\n📌 *Status*                 : ' + statusInfo + '\n\n' + L + '\n📌 *SALDO TERBARU*\n• 🧍 Sisa saldo kamu    : *Rp ' + db[senderJid].coin.toLocaleString('id-ID') + '*\n• 🧑‍🤝‍🧑 Saldo penerima : *Rp ' + db[mentionedJid].coin.toLocaleString('id-ID') + '*\n\n🕒 *Waktu* : ' + now + '\n' + L + '\nawait sock.sendMessage(from, { text: txt, mentions: [senderJid, mentionedJid] }, { quoted: msg })
     }
 
   })
