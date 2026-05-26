@@ -7,7 +7,7 @@ const loadDB = () => { try { return JSON.parse(fs.readFileSync(dbPath, 'utf8')) 
 const saveDB = (data) => fs.writeFileSync(dbPath, JSON.stringify(data, null, 2))
 const BOT_NAME = 'GrowBetBot'
 const OWNER1 = '628218518931@s.whatsapp.net'
-const OWNER2 = '6281274442440@s.whatsapp.net'
+const OWNER2 = '6287840375516@s.whatsapp.net'
 const OWNER_LID = '131950706745525@lid'
 
 async function startBot() {
@@ -139,7 +139,7 @@ async function startBot() {
     // QRIS
     if (text === '.qris' || text === '.qr') {
       const txt = L + '\n💳 *[ GROW BET — PEMBAYARAN QRIS ]* 💳\n' + L + '\n\n🏦 *INFO PEMBAYARAN*\n┏━━━━━━━━━━━━━━━━━━━━\n┃ 🏪 *Merchant* : GROW BET\n┃ 💳 *Metode*   : QRIS (All Payment)\n┃ ✅ *Status*   : _Aktif & Tersedia_\n┗━━━━━━━━━━━━━━━━━━━━\n\n' + L + '\n📋 *CARA PEMBAYARAN*\n' + L + '\n1️⃣ Screenshot / scan QR di atas\n2️⃣ Buka aplikasi e-wallet / m-banking\n3️⃣ Pilih menu *Scan QR / QRIS*\n4️⃣ Masukkan nominal deposit\n5️⃣ Konfirmasi ke Owner / Staff\n\n' + L + '\n💰 *INFO DEPOSIT*\n' + L + '\n💵 *Min Deposit* : Rp 2.000\n🏧 *Diterima*    : _Semua e-wallet & bank_\n⚡ *Proses*      : _Instan & Otomatis_\n\n' + L + '\n⚠️ _Simpan bukti transfer sebelum konfirmasi_\n🕐 _Layanan: 08.00 — 24.00 WIB_\n' + L + '\n🤖 *GrowBetBot — Tempat Para Juara* 🏆\n' + L
-      await sock.sendMessage(from, { image: { url: 'file:///data/data/com.termux/files/home/GrowBetBot/growbet/qris.jpg' }, caption: txt }, { quoted: msg })
+      await sock.sendMessage(from, { image: { url: './qris.jpg' }, caption: txt }, { quoted: msg })
     }
 
     // PING
