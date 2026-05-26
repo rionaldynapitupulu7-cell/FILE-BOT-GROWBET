@@ -41,11 +41,7 @@ async function startBot() {
           const num = jid.split('@')[0]
           const meta = await sock.groupMetadata(id)
           const total = meta.participants.length
-        const txt = '🎰 *SELAMAT DATANG DI GROW BET* 🎰\n\n'
-
- *Member* : @' + num + '
-👥 *Grup* : ' + meta.subject + '
-📊 *Total* : ' + total + ' member
+          const txt = '🎰 *SELAMAT DATANG DI GROW BET* 🎰\n\n👤 *Member* : @' + num + '\n👥 *Grup* : ' + meta.subject + '\n📊 *Total* : ' + total + ' member\n'
 
 ━━━━━━━━━━━━━━━━━━━━━
 📌 *INFO PENTING*
