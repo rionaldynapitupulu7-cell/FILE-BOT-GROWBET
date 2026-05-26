@@ -47,8 +47,7 @@ async function startBot() {
 
   sock.ev.on('messages.upsert', async ({ messages }) => {
     const msg = messages[0]
-    if (!msg.message) return
-    console.log("MSG FROM:", msg.key.remoteJid, "TEXT:", text)
+    if (!msg.message || msg.key.fromMe) return
     const text = (msg.message.conversation || msg.message.extendedTextMessage?.text || '').trim()
     const from = msg.key.remoteJid
     const senderJid = msg.key.participant || msg.key.remoteJid
