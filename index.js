@@ -124,7 +124,7 @@ async function startBot() {
 
     // STAFF
     if (text === '.staff') {
-      const staffJid = '6282886871607@s.whatsapp.net'
+      const staffJid = '6288286871607@s.whatsapp.net'
       const txt = L + '\n👥 *GROW BET — STAFF LIST* 👥\n' + L + '\n\n🌟 *[ STAFF AKTIF ]*\n┏━━━━━━━━━━━━━━━━━━━━\n┃ 🎖️ *Jabatan* : Staff Official\n┃ 👤 *Nama*    : Staff GBET\n┃ 📱 *Kontak*  : @' + staffJid.split('@')[0] + '\n┃ 💼 *Tugas*   : _Melayani & Membantu Member_\n┗━━━━━━━━━━━━━━━━━━━━\n\n' + L + '\n📌 *LAYANAN STAFF*\n' + L + '\n✅ Bantuan Deposit & Withdraw\n✅ Konfirmasi Transaksi\n✅ Laporan Kendala & Komplain\n✅ Info Promo & Bonus\n\n' + L + '\n⚠️ _Hubungi staff hanya untuk keperluan resmi_\n🕐 _Jam Layanan: 08.00 — 24.00 WIB_\n' + L + '\n🤖 *GrowBetBot — Tempat Para Juara* 🏆\n' + L
       await sock.sendMessage(from, { text: txt, mentions: [staffJid] }, { quoted: msg })
     }
