@@ -42,8 +42,6 @@ async function startBot() {
           const meta = await sock.groupMetadata(id)
           const total = meta.participants.length
           const txt = '🎰 *SELAMAT DATANG DI GROW BET* 🎰\n\n━━━━━━━━━━━━━━━━━━━━━\n📌 *INFO PENTING*\n━━━━━━━━━━━━━━━━━━━━━\n✅ Daftarkan diri ke Owner\n💰 Min Deposit : *Rp 2.000*\n💸 Min WD : *Rp 10.000* | Tax 3%\n🎮 Min Bet : *Rp 500*\n\n🏆 Bonus & hadiah menarik!\n━━━━━━━━━━━━━━━━━━━━━\n💎 *GROW BET — Tempat Para Juara*\n🔥 Semoga hoki selalu! 🍀'
-💎 *GROW BET — Tempat Para Juara*
-🔥 _Semoga hoki selalu!_ 🍀'
           await delay(1500 + Math.random() * 1000)
               await sock.sendMessage(id, { image: { url: 'https://raw.githubusercontent.com/rionaldynapitupulu7-cell/Welcome/main/IMG-20260518-WA0020.jpg' }, caption: txt, mentions: [jid] })
         } catch(e) { console.error('Welcome error:', e.message) }
