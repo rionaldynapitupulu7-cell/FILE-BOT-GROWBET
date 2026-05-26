@@ -6,7 +6,7 @@ const loadDB = () => { try { return JSON.parse(fs.readFileSync(dbPath, 'utf8')) 
 const saveDB = (data) => fs.writeFileSync(dbPath, JSON.stringify(data, null, 2))
 const BOT_NAME = 'GrowBetBot'
 const OWNER1 = '628218518931@s.whatsapp.net'
-const OWNER2 = '6281274442440@s.whatsapp.net'
+const OWNER2 = '6287840375516@s.whatsapp.net'
 const OWNER_LID = '131950706745525@lid'
 
 async function startBot() {
