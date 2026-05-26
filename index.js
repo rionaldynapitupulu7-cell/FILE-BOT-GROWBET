@@ -43,7 +43,7 @@ async function startBot() {
           const total = meta.participants.length
         const txt = '🎰 *SELAMAT DATANG DI GROW BET* 🎰\n\n'
 
-👤 *Member* : @' + num + '
+ *Member* : @' + num + '
 👥 *Grup* : ' + meta.subject + '
 📊 *Total* : ' + total + ' member
 
