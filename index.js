@@ -41,12 +41,7 @@ async function startBot() {
           const num = jid.split('@')[0]
           const meta = await sock.groupMetadata(id)
           const total = meta.participants.length
-          const txt = '🎰 *SELAMAT DATANG DI GROW BET* 🎰\n\n👤 *Member* : @' + num + '\n👥 *Grup* : ' + meta.subject + '\n📊 *Total* : ' + total + ' member\n'
-
-━━━━━━━━━━━━━━━━━━━━━
-📌 *INFO PENTING*
-━━━━━━━━━━━━━━━━━━━━━
-✅ Daftarkan diri ke Owner
+          const txt = '🎰 *SELAMAT DATANG DI GROW BET* 🎰\n\n━━━━━━━━━━━━━━━━━━━━━\n📌 *INFO PENTING*\n━━━━━━━━━━━━━━━━━━━━━\n✅ Daftarkan diri ke Owner\n💰 Min Deposit : *Rp 2.000*\n💸 Min WD : *Rp 10.000* | Tax 3%\n🎮 Min Bet : *Rp 500*\n\n🏆 Bonus & hadiah menarik!\n━━━━━━━━━━━━━━━━━━━━━\n💎 *GROW BET — Tempat Para Juara*\n🔥 Semoga hoki selalu! 🍀'
 💰 Min Deposit : *Rp 2.000*
 💸 Min WD : *Rp 10.000* | Tax 3%
 🎮 Min Bet : *Rp 500*
